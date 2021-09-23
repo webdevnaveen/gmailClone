@@ -1,0 +1,469 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gmail Clone</title>
+    <link rel="stylesheet" href="../Icon/css/all.min.css">
+    <style>
+        *{margin: 0; padding: 0; box-sizing: border-box;}
+        .fl{float: left;}
+        .fr{float: right;}
+        .clr{clear: both;}
+        .c1{color: grey;}
+        .c3{color: cornflowerblue;}
+        .c4{color: rgb(252, 252, 77);}
+        .c5{color: tomato;}
+        .s1{font-size: 0.6em;}
+        .py{padding: 0.5% 0%;}
+        .bold{font-weight: bold;}
+        ul li{list-style-type: none;}
+        .text-cen{text-align: center;}
+        /* Header */
+        .head{width: 100%; height: 70px; background-color: white; position: sticky; top: 0px; border-bottom: 2px solid whitesmoke;}
+        .logo{width: 250px; height: 56px; background-color: ; margin-left: 20px; }
+        .icon1{padding-top: 21px; padding-left: 10px;}
+        .p-cus{padding-top: 16px; padding-left: 10px;}
+        .img{padding-left: 20px;}
+        .logo-name{font-size: 1.5em; font-family: 'Raleway', sans-serif;}
+        .s-box{padding: 0.8% 0%;}
+        .icon2{height: 50px; width: 40px; border-radius: 15px 0px 0px 15px; background-color: whitesmoke; padding-top: 17px;}
+        .inp{height: 50px; width: 700px; background-color: whitesmoke; padding-top: 12px;}
+        .b1{border: 0px; background-color: whitesmoke; height: 30px; font-size: 1em;}
+        .icon3{background-color: whitesmoke; height: 50px; padding-top: 14px; padding-right: 10px; border-radius: 0px 15px 15px 0px; }
+        .icons{width: 200px; background-color: ; height: 56px;}
+        .icon4{ padding-top: 18px; margin-left: 23px; font-size: 1.3em; }
+        .icon5{width: 30px; height: 30px; padding-top: 5px; border-radius: 50%; margin-top: 10px;
+            margin-left: 20px; text-align: center; background-color: teal; color: white; font-size: 1.2em;  font-family: 'Raleway', sans-serif;}
+        
+        /*Left-Fixed */
+        .left-fix{min-height: 700px; width: 20%; position: fixed; left: 0px; top: 70px;
+                   box-shadow: 3px 5px 3px rgb(223, 222, 222);}
+        .compose{padding-top: 10px; padding-left: 5px;}
+        .nav-block2 li{ width: 240px; height: 30px; border-radius: 0px 20px 20px 0px; margin-bottom: 2px; padding-left: 20px; padding-top: 3%; }
+        .nav-block2{padding-top: 10px; cursor: pointer;}
+        .nav-block li{ width: 240px; height: 30px; cursor: pointer;
+             border-radius: 0px 20px 20px 0px; margin-bottom: 2px; padding-left: 20px; padding-top: 3%; }
+        .nav-block li:hover{background-color: whitesmoke;}
+        .txt{font-family: 'Raleway', sans-serif;margin-left: 20px; font-weight: 200;}
+        .c2{color: tomato;}
+        .bg1{ background-color: rgb(255, 184, 172); }
+        .bg1:hover{background-color:  rgb(255, 184, 172);}
+        .meet{min-height: 140px; margin-top: 40px; margin-inline-start: 10px; border-top: 4px solid whitesmoke;}
+        .meet ul{padding-top: 10px;}
+        .meet li{padding-left: 0px;}
+        .hangout{margin-top: 0px;}
+        .hangout .icon5{margin-left: 0px; position: relative;}
+        .online{width: 10px; height: 10px; border-radius: 50%; background-color: greenyellow;
+             position: absolute;bottom: 0px; right: -1px;}
+             .nt{position: absolute; right: -70px; bottom: 5px;  color: rgb(54, 54, 54); font-size: 0.8em;}
+             .plus{position: absolute; bottom: 5px; left: 240px; font-size: 00.8em;}
+        /* Right-Fixed */
+        .right-fix{min-height: 700px; width: 55px; position: fixed; right: 0px; top: 70px;
+            border-left: 2px solid whitesmoke; background-color: ;}
+        .icon6{display: block; font-size: 1.3em; margin-bottom: 35px; }
+        /* Container */
+        .container{min-height:800px ; width:76% ; background-color: ; margin-left: 20%; }
+        .row{width: 76%; height: 60px; margin-left: 20%; }
+        .box3{ height: 50px; width: 25.7%; padding: 15px; font-family: sans-serif;
+            font-size: 0.9em; margin-left: 0.5%; transition: background-color; transition-duration: 500ms;}
+        .box3:hover{background-color: whitesmoke; color: black;}
+        #bb1{border-bottom: 2px solid tomato;}
+        #bb2{border-bottom: 0px solid blue;}
+        #bb3{border-bottom: 0px solid green;}
+
+        #bb1:hover{color: tomato;}
+        .chat{height: 40px; width: 100%; font-family: sans-serif; background-color: ; padding-top:10px; padding-left: 10px;}
+        .chat:hover{background-color: whitesmoke; border: 1px solid whitesmoke; box-shadow: 0px 2px 3px rgb(160, 160, 160);}
+        .name{width: 28%; height: 25px;padding: 2px; background-color: ; }
+        .text{width: 63%;  height: 25px; background-color: ; margin-left: 5px; color: #2b2b2b;}
+        .time{width: 8%; height: 25px; background-color: ; font-size: 0.8em; padding-top: 2px;}
+        ::-webkit-scrollbar{width: 2px;}
+        
+    </style>
+
+</head>
+<body>
+    <!-- Header -->
+    <div class="head">
+        <div class="logo fl py">
+            <div class="icon1 fl s1"><i class="fas fa-align-justify fa-2x c1"></i></div>
+            <div class="img p-cus fl "><img src="Images/gmail2.png" height="26px" width="36px" alt=""></div>
+            <div class="logo-name c1 p-cus img fl">Gmail</div>
+        </div>
+        <div class="s-box fl py">
+            <a href="#"><div class="icon2 fl c1 icon1"><i class="fas fa-search"></i></div></a>
+            <div class="inp fl p-cus"><input type="search" class="b1" placeholder="Search Mail"></div>
+           <a href="#"> <div class="icon3  c1 fl"><i class="fas fa-align-justify"></i></div></a>
+        </div>
+        <div class="icons fr py">
+            <a href=""><div class="icon4 fl c1"><i class="far fa-question-circle "></i></div></a>
+            <a href=""><div class="icon4 fl c1"><i class="fas fa-cog"></i></div></a>
+            <a href=""><div class="icon4 fl c1"><i class="fas fa-ellipsis-h"></i></div></a>
+            <a href=""><div class="icon5 fl ">N</div></a>
+        </div>
+    </div>
+    <div class="clr"></div>
+    <!-- Header -->
+
+    <!-- Container -->
+    <div class="clr"></div>
+    <div class="row">
+        <div onclick="bob(1)" id="bb1" class="box3 fl  c5"><i class="far fa-square"></i> Primary</div>
+        <div onclick="bob(2)" id="bb2" class="box3 fl c1"><i class="fas fa-user-friends"></i> Social</div>
+        <div onclick="bob(3)" id="bb3" class="box3 fl c1"><i class="fas fa-tag"></i> Promotions</div>
+
+    </div>
+    <div id="primary" class="container">
+       
+        <div class="chat">
+            <div class="name  fl"><i class="far fa-square c1 demo"></i>&nbsp; <i class="far fa-star c1"></i>&nbsp;&nbsp;The Google Team   </div>
+            <div class="text fl"><span class="bold"> Naveen</span>, Take the next step on your Windows by confirming your Google Account settings</div>
+            <div class="time fr c1">12:45 PM</div>
+        </div>
+        <div class="chat">
+            <div class="name bold  fl"><i class="far fa-square c1"></i>&nbsp; <i class="far fa-star c1"></i>&nbsp;&nbsp;Internshala   </div>
+            <div class="text fl"><span class="bold"> Information Trainin</span>, Is your Degree good enough</div>
+            <div class="time fr c1">12:45 PM</div>
+        </div>
+        <div class="chat">
+            <div class="name bold fl"><i class="far fa-square c1"></i>&nbsp; <i class="far fa-star c1"></i>&nbsp;&nbsp; Google   </div>
+            <div class="text fl"><span class="bold">Security alert</span>-new device signed in to ntnaveen241@gmail.com, your device was...</div>
+            <div class="time fr c1">12:45 PM</div>
+        </div>
+        <div class="chat">
+            <div class="name  fl"><i class="far fa-square c1"></i>&nbsp; <i class="far fa-star c1"></i>&nbsp;&nbsp;Linkedin Job Alerts   </div>
+            <div class="text fl"><span class=""> 2 new jobs for 'freelance'</span>Front-end Developer,work from home, full-time...</div>
+            <div class="time fr c1">12:45 PM</div>
+        </div>
+        <div class="chat">
+            <div class="name  fl"><i class="far fa-square c1"></i>&nbsp; <i class="far fa-star c1"></i>&nbsp;&nbsp;Github   </div>
+            <div class="text fl"><span class="bold">Github launch code,</span> Here is your github launch code @webdevnaveen...</div>
+            <div class="time fr c1">12:45 PM</div>
+        </div>
+        <div class="chat">
+            <div class="name bold  fl"><i class="far fa-square c1"></i>&nbsp; <i class="far fa-star c1"></i>&nbsp;&nbsp;Paytm   </div>
+            <div class="text fl"><span class="bold"> Paytm Payments Bank wallet summary 2021</span>,  by confirming your Google Account </div>
+            <div class="time fr c1">2:39 PM</div>
+        </div>
+        <div class="chat">
+            <div class="name  fl"><i class="far fa-square c1"></i>&nbsp; <i class="far fa-star c1"></i>&nbsp;&nbsp;The Google Team   </div>
+            <div class="text fl"><span class="bold"> Naveen</span>, Take the next step on your Windows by confirming your Google Account settings</div>
+            <div class="time fr c1">12:45 PM</div>
+        </div>
+        <div class="chat">
+            <div class="name  fl"><i class="far fa-square c1"></i>&nbsp; <i class="far fa-star c1"></i>&nbsp;&nbsp;Linkedin Job Alerts   </div>
+            <div class="text fl"><span class=""> 2 new jobs for 'freelance'</span>Front-end Developer,work from home, full-time...</div>
+            <div class="time fr c1">12:45 PM</div>
+        </div>
+        <div class="chat">
+            <div class="name  fl"><i class="far fa-square c1"></i>&nbsp; <i class="far fa-star c1"></i>&nbsp;&nbsp;Github   </div>
+            <div class="text fl"><span class="bold">Github launch code,</span> Here is your github launch code @webdevnaveen...</div>
+            <div class="time fr c1">12:45 PM</div>
+        </div>
+        
+        <div class="chat">
+            <div class="name bold  fl"><i class="far fa-square c1"></i>&nbsp; <i class="far fa-star c1"></i>&nbsp;&nbsp;Internshala   </div>
+            <div class="text fl"><span class="bold"> Information Trainin</span>, Is your Degree good enough</div>
+            <div class="time fr c1">12:45 PM</div>
+        </div>
+        <div class="chat">
+            <div class="name bold fl"><i class="far fa-square c1"></i>&nbsp; <i class="far fa-star c1"></i>&nbsp;&nbsp; Google   </div>
+            <div class="text fl"><span class="bold">Security alert</span>-new device signed in to ntnaveen241@gmail.com, your device was...</div>
+            <div class="time fr c1">12:45 PM</div>
+        </div>
+        <div class="chat">
+            <div class="name  fl"><i class="far fa-square c1"></i>&nbsp; <i class="far fa-star c1"></i>&nbsp;&nbsp;Linkedin Job Alerts   </div>
+            <div class="text fl"><span class=""> 2 new jobs for 'freelance'</span>Front-end Developer,work from home, full-time...</div>
+            <div class="time fr c1">12:45 PM</div>
+        </div>
+        <div class="chat">
+            <div class="name  fl"><i class="far fa-square c1"></i>&nbsp; <i class="far fa-star c1"></i>&nbsp;&nbsp;Github   </div>
+            <div class="text fl"><span class="bold">Github launch code,</span> Here is your github launch code @webdevnaveen...</div>
+            <div class="time fr c1">12:45 PM</div>
+        </div>
+        <div class="chat">
+            <div class="name bold  fl"><i class="far fa-square c1"></i>&nbsp; <i class="far fa-star c1"></i>&nbsp;&nbsp;Internshala   </div>
+            <div class="text fl"><span class="bold"> Information Trainin</span>, Is your Degree good enough</div>
+            <div class="time fr c1">12:45 PM</div>
+        </div>
+        <div class="chat">
+            <div class="name  fl"><i class="far fa-square c1"></i>&nbsp; <i class="far fa-star c1"></i>&nbsp;&nbsp;Linkedin Job Alerts   </div>
+            <div class="text fl"><span class=""> 2 new jobs for 'freelance'</span>Front-end Developer,work from home, full-time...</div>
+            <div class="time fr c1">12:45 PM</div>
+        </div>
+        <div class="chat">
+            <div class="name  fl"><i class="far fa-square c1"></i>&nbsp; <i class="far fa-star c1"></i>&nbsp;&nbsp;Github   </div>
+            <div class="text fl"><span class="bold">Github launch code,</span> Here is your github launch code @webdevnaveen...</div>
+            <div class="time fr c1">12:45 PM</div>
+        </div>
+        <div class="chat">
+            <div class="name bold  fl"><i class="far fa-square c1"></i>&nbsp; <i class="far fa-star c1"></i>&nbsp;&nbsp;Paytm   </div>
+            <div class="text fl"><span class="bold"> Paytm Payments Bank wallet summary 2021</span>,  by confirming your Google Account </div>
+            <div class="time fr c1">2:39 PM</div>
+        </div>
+        <div class="chat">
+            <div class="name  fl"><i class="far fa-square c1"></i>&nbsp; <i class="far fa-star c1"></i>&nbsp;&nbsp;Linkedin Job Alerts   </div>
+            <div class="text fl"><span class=""> 2 new jobs for 'freelance'</span>Front-end Developer,work from home, full-time...</div>
+            <div class="time fr c1">12:45 PM</div>
+        </div>
+        <div class="chat">
+            <div class="name  fl"><i class="far fa-square c1"></i>&nbsp; <i class="far fa-star c1"></i>&nbsp;&nbsp;Github   </div>
+            <div class="text fl"><span class="bold">Github launch code,</span> Here is your github launch code @webdevnaveen...</div>
+            <div class="time fr c1">12:45 PM</div>
+        </div>
+        <div class="chat">
+            <div class="name bold  fl"><i class="far fa-square c1"></i>&nbsp; <i class="far fa-star c1"></i>&nbsp;&nbsp;Internshala   </div>
+            <div class="text fl"><span class="bold"> Information Trainin</span>, Is your Degree good enough</div>
+            <div class="time fr c1">12:45 PM</div>
+        </div>
+        <div class="chat">
+            <div class="name  fl"><i class="far fa-square c1"></i>&nbsp; <i class="far fa-star c1"></i>&nbsp;&nbsp;Linkedin Job Alerts   </div>
+            <div class="text fl"><span class=""> 2 new jobs for 'freelance'</span>Front-end Developer,work from home, full-time...</div>
+            <div class="time fr c1">12:45 PM</div>
+        </div>
+        <div class="chat">
+            <div class="name  fl"><i class="far fa-square c1"></i>&nbsp; <i class="far fa-star c1"></i>&nbsp;&nbsp;Github   </div>
+            <div class="text fl"><span class="bold">Github launch code,</span> Here is your github launch code @webdevnaveen...</div>
+            <div class="time fr c1">12:45 PM</div>
+        </div>
+        <div class="chat">
+            <div class="name bold  fl"><i class="far fa-square c1"></i>&nbsp; <i class="far fa-star c1"></i>&nbsp;&nbsp;Internshala   </div>
+            <div class="text fl"><span class="bold"> Information Trainin</span>, Is your Degree good enough</div>
+            <div class="time fr c1">12:45 PM</div>
+        </div>
+        <div class="chat">
+            <div class="name bold fl"><i class="far fa-square c1"></i>&nbsp; <i class="far fa-star c1"></i>&nbsp;&nbsp; Google   </div>
+            <div class="text fl"><span class="bold">Security alert</span>-new device signed in to ntnaveen241@gmail.com, your device was...</div>
+            <div class="time fr c1">12:45 PM</div>
+        </div>
+        
+    </div>
+
+    <div id="social" class="container">
+       
+        <div class="chat">
+            <div class="name  fl"><i class="far fa-square c1 demo"></i>&nbsp; <i class="far fa-star c1"></i>&nbsp;&nbsp;Facebook   </div>
+            <div class="text fl"><span class="bold"> Naveen</span>, Complete setting up your profile...</div>
+            <div class="time fr c1">12:45 PM</div>
+        </div>
+        <div class="chat">
+            <div class="name bold  fl"><i class="far fa-square c1"></i>&nbsp; <i class="far fa-star c1"></i>&nbsp;&nbsp;Facebook   </div>
+            <div class="text fl"><span class="bold"> 99+ Friend Rquests</span>, Your friends are waiting..</div>
+            <div class="time fr c1">12:45 PM</div>
+        </div>
+        <div class="chat">
+            <div class="name bold fl"><i class="far fa-square c1"></i>&nbsp; <i class="far fa-star c1"></i>&nbsp;&nbsp; Linkedin   </div>
+            <div class="text fl"><span class="bold">Set up Your Profile</span>Build your network,start connecting to people</div>
+            <div class="time fr c1">12:45 PM</div>
+        </div>
+        <div class="chat">
+            <div class="name  fl"><i class="far fa-square c1"></i>&nbsp; <i class="far fa-star c1"></i>&nbsp;&nbsp;Linkedin Job Alerts   </div>
+            <div class="text fl"><span class=""> 2 new jobs for 'freelance'</span>Front-end Developer,work from home, full-time...</div>
+            <div class="time fr c1">12:45 PM</div>
+        </div>
+        <div class="chat">
+            <div class="name  fl bold"><i class="far fa-square c1"></i>&nbsp; <i class="far fa-star c1"></i>&nbsp;&nbsp;Muskan Sharma via Github   </div>
+            <div class="text fl"><span class="bold">Github launch code,</span> Here is your github launch code @webdevnaveen...</div>
+            <div class="time fr c1">12:45 PM</div>
+        </div>
+        <div class="chat">
+            <div class="name  fl"><i class="far fa-square c1 demo"></i>&nbsp; <i class="far fa-star c1"></i>&nbsp;&nbsp;Facebook   </div>
+            <div class="text fl"><span class="bold"> Naveen</span>, Complete setting up your profile...</div>
+            <div class="time fr c1">12:45 PM</div>
+        </div>
+        <div class="chat">
+            <div class="name bold  fl"><i class="far fa-square c1"></i>&nbsp; <i class="far fa-star c1"></i>&nbsp;&nbsp;Facebook   </div>
+            <div class="text fl"><span class="bold"> 99+ Friend Rquests</span>, Your friends are waiting..</div>
+            <div class="time fr c1">12:45 PM</div>
+        </div>
+        <div class="chat">
+            <div class="name bold fl"><i class="far fa-square c1"></i>&nbsp; <i class="far fa-star c1"></i>&nbsp;&nbsp; Linkedin   </div>
+            <div class="text fl"><span class="bold">Set up Your Profile</span>Build your network,start connecting to people</div>
+            <div class="time fr c1">12:45 PM</div>
+        </div>
+        <div class="chat">
+            <div class="name  fl"><i class="far fa-square c1"></i>&nbsp; <i class="far fa-star c1"></i>&nbsp;&nbsp;Linkedin Job Alerts   </div>
+            <div class="text fl"><span class=""> 2 new jobs for 'freelance'</span>Front-end Developer,work from home, full-time...</div>
+            <div class="time fr c1">12:45 PM</div>
+        </div>
+        <div class="chat">
+            <div class="name  fl"><i class="far fa-square c1"></i>&nbsp; <i class="far fa-star c1"></i>&nbsp;&nbsp;Github   </div>
+            <div class="text fl"><span class="bold">Github launch code,</span> Here is your github launch code @webdevnaveen...</div>
+            <div class="time fr c1">12:45 PM</div>
+        </div>
+       
+
+        <div class="chat">
+            <div class="name  fl"><i class="far fa-square c1"></i>&nbsp; <i class="far fa-star c1"></i>&nbsp;&nbsp;Linkedin Job Alerts   </div>
+            <div class="text fl"><span class=""> 2 new jobs for 'freelance'</span>Front-end Developer,work from home, full-time...</div>
+            <div class="time fr c1">12:45 PM</div>
+        </div>
+        <div class="chat">
+            <div class="name  fl"><i class="far fa-square c1"></i>&nbsp; <i class="far fa-star c1"></i>&nbsp;&nbsp;Github   </div>
+            <div class="text fl"><span class="bold">Github launch code,</span> Here is your github launch code @webdevnaveen...</div>
+            <div class="time fr c1">12:45 PM</div>
+        </div>
+      
+        <div class="chat">
+            <div class="name  fl"><i class="far fa-square c1"></i>&nbsp; <i class="far fa-star c1"></i>&nbsp;&nbsp;Linkedin Job Alerts   </div>
+            <div class="text fl"><span class=""> 2 new jobs for 'freelance'</span>Front-end Developer,work from home, full-time...</div>
+            <div class="time fr c1">12:45 PM</div>
+        </div>
+        <div class="chat">
+            <div class="name  fl"><i class="far fa-square c1"></i>&nbsp; <i class="far fa-star c1"></i>&nbsp;&nbsp;Github   </div>
+            <div class="text fl"><span class="bold">Github launch code,</span> Here is your github launch code @webdevnaveen...</div>
+            <div class="time fr c1">12:45 PM</div>
+        </div> 
+   
+        <div class="chat">
+            <div class="name  fl"><i class="far fa-square c1"></i>&nbsp; <i class="far fa-star c1"></i>&nbsp;&nbsp;Linkedin Job Alerts   </div>
+            <div class="text fl"><span class=""> 2 new jobs for 'freelance'</span>Front-end Developer,work from home, full-time...</div>
+            <div class="time fr c1">12:45 PM</div>
+        </div>
+
+        <div class="chat">
+            <div class="name  fl"><i class="far fa-square c1"></i>&nbsp; <i class="far fa-star c1"></i>&nbsp;&nbsp;Linkedin Job Alerts   </div>
+            <div class="text fl"><span class=""> 2 new jobs for 'freelance'</span>Front-end Developer,work from home, full-time...</div>
+            <div class="time fr c1">12:45 PM</div>
+        </div>
+        <div class="chat">
+            <div class="name  fl"><i class="far fa-square c1"></i>&nbsp; <i class="far fa-star c1"></i>&nbsp;&nbsp;Github   </div>
+            <div class="text fl"><span class="bold">Github launch code,</span> Here is your github launch code @webdevnaveen...</div>
+            <div class="time fr c1">12:45 PM</div>
+        </div>
+  
+        
+    </div>
+    <div id="promotion" class="container">
+       
+        <div class="chat">
+            <div class="name  fl"><i class="far fa-square c1 demo"></i>&nbsp; <i class="far fa-star c1"></i>&nbsp;&nbsp;Udemy   </div>
+            <div class="text fl"><span class="bold"> Naveen</span>, Take the next step on your Windows by confirming your Google Account settings</div>
+            <div class="time fr c1">12:45 PM</div>
+        </div>
+        <div class="chat">
+            <div class="name bold  fl"><i class="far fa-square c1"></i>&nbsp; <i class="far fa-star c1"></i>&nbsp;&nbsp;Coursera   </div>
+            <div class="text fl"><span class="bold"> Information Trainin</span>, Is your Degree good enough</div>
+            <div class="time fr c1">12:45 PM</div>
+        </div>
+        <div class="chat">
+            <div class="name bold fl"><i class="far fa-square c1"></i>&nbsp; <i class="far fa-star c1"></i>&nbsp;&nbsp; Paytm   </div>
+            <div class="text fl"><span class="bold">Security alert  </span>Recaharge your mobile today and get bonus card, your device was...</div>
+            <div class="time fr c1">12:45 PM</div>
+        </div>
+    </div>
+    <div id="starred" class="container">
+       
+        <div class="chat">
+            <div class="name  fl"><i class="far fa-square c1 demo"></i>&nbsp; <i class="fas fa-star c4"></i>&nbsp;&nbsp;Star   </div>
+            <div class="text fl"><span class="bold"> Naveen</span>, Take the next step on your Windows by confirming your Google Account settings</div>
+            <div class="time fr c1">12:45 PM</div>
+        </div>
+        <div class="chat">
+            <div class="name bold  fl"><i class="far fa-square c1"></i>&nbsp; <i class="fas fa-star c4"></i>&nbsp;&nbsp;Coursera   </div>
+            <div class="text fl"><span class="bold"> Information Trainin</span>, Is your Degree good enough</div>
+            <div class="time fr c1">12:45 PM</div>
+        </div>
+        <div class="chat">
+            <div class="name bold fl"><i class="far fa-square c1"></i>&nbsp; <i class="fas fa-star c4"></i>&nbsp;&nbsp; Paytm   </div>
+            <div class="text fl"><span class="bold">Security alert  </span>Recaharge your mobile today and get bonus card, your device was...</div>
+            <div class="time fr c1">12:45 PM</div>
+        </div>
+    </div>
+    <!--Left-Fixed -->
+    <div class="left-fix">
+        <div class="compose">
+            <a href=""><img src="Images/compose.jpg" width="150px" height="60px" alt=""></a>
+        </div>
+            <ul class="nav-block2">
+            <li onclick="bob(1)" class="bg1" id="bg0"><i class="fas fa-inbox  c2"> <span class="txt c2">Inbox &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1,058 </span></i></li>
+            </ul>
+            <ul class="nav-block">
+                <li onclick="bob(4)" id="bg"><i class="fas fa-star c1"> <span class="txt">Starred </span></i></li>
+                <li onclick="bob(5)"></a><i class="fas fa-clock c1"> <span class="txt">Snoozed </span></i></li>
+                <li><a href=""><i class="fas fa-paper-plane c1"> <span class="txt">Sent </span></i></a></li>
+                <li><a href=""><i class="fas fa-file-alt c1"> <span class="txt">Draft </span></i></a></li>
+            </ul>
+            <div class="meet c1 txt"><br> Meet
+                <ul class="nav-block"> 
+                    <li><a href=""><i class="fas fa-video c1"> <span class="txt">Start Meeting </span></i></a></li>
+                    <li><a href=""><i class="fas fa-keyboard c1"> <span class="txt">Join Meeting </span></i></a></li>
+                   
+                </ul>
+            </div>
+            <div class="hangout meet txt c1"><br> Hangouts
+                <a href=""><div class="icon5  ">N
+                    <div class="online"></div> <span class="nt">Naveen <i class="fas fa-chevron-down s1"></i></span>
+                    <div class="plus"><i class="fas fa-plus c1"></i></div>
+                </div></a>
+
+            </div>
+    </div> 
+
+    <!-- Rignt-Fixed -->
+    <div class="right-fix text-cen p-cus">
+        <i class="far fa-calendar-alt  c3 icon6"></i>
+        <i class="fas fa-lightbulb  c4 icon6"></i>
+        <i class="fas fa-pen-square  c3 icon6"></i>
+        <i class="fas fa-user-circle  c3 icon6"></i>
+    </div>
+    <!-- Rignt-Fixed -->
+
+
+    <script>
+        function bob(x){
+            if(x==1){
+                document.getElementById('bb1').style.borderBottom='2px solid tomato';
+                document.getElementById('bb1').style.color='tomato';
+                document.getElementById('bb2').style.color='gray';
+                document.getElementById('bb2').style.borderBottom='0px solid blue';
+                document.getElementById('bb3').style.color='gray';
+                document.getElementById('bb3').style.borderBottom='0px solid green';
+                document.getElementById('primary').style.display='block';
+                document.getElementById('social').style.display='none';
+                document.getElementById('promotion').style.display='none';
+                document.getElementById('bg0').style.backgroundColor='#EF9A9A';
+                document.getElementById('bg').style.backgroundColor='white';
+
+
+            }
+            else if(x==2){
+                document.getElementById('bb1').style.borderBottom='0px solid blue';
+                document.getElementById('bb1').style.color='gray';
+                document.getElementById('bb3').style.color='gray';
+                document.getElementById('bb3').style.borderBottom='0px solid green';
+                document.getElementById('bb2').style.color='blue';
+                document.getElementById('bb2').style.borderBottom='2px solid blue';
+                document.getElementById('social').style.display='block';
+                document.getElementById('primary').style.display='none';
+                document.getElementById('promotion').style.display='none';
+
+            }
+            else if(x==3){
+                document.getElementById('bb1').style.borderBottom='0px solid blue';
+                document.getElementById('bb1').style.color='gray';
+                document.getElementById('bb2').style.color='gray';
+                document.getElementById('bb2').style.borderBottom='0px solid blue';
+                document.getElementById('bb3').style.color='green';
+                document.getElementById('bb3').style.borderBottom='2px solid green';
+                document.getElementById('promotion').style.display='block';
+                document.getElementById('primary').style.display='none';
+                document.getElementById('social').style.display='none';
+
+            }
+            else if(x==4){
+                document.getElementById('bg0').style.backgroundColor='white';
+
+                document.getElementById('bg').style.backgroundColor='whitesmoke';
+                document.getElementById('starred').style.display='block';
+                document.getElementById('promotion').style.display='none';
+                document.getElementById('primary').style.display='none';
+                document.getElementById('social').style.display='none';
+
+            }
+        }
+    </script>
+</body>
+</html>
